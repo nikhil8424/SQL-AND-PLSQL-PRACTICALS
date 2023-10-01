@@ -1,0 +1,1403 @@
+ PRACTICAL_1 ER DIAGRAM 
+
+
+
+PRACTICAL_2
+
+
+
+create table emp
+(
+emp_id number(4),
+emp_name char(10),
+dept_name char(10),
+dept_number number(4)
+);
+
+insert into emp values(1234,'nikhil','marketing',4567);
+insert into emp values(4321,'nalini','social',7654);
+insert into emp values(9987,'manideep','sales',9702);
+insert into emp values(3690,'laxmi','hr',8424);
+
+select * from emp;
+
+select emp_name from emp;
+
+CLIENT MASTER
+
+create table client_master
+(
+clientno varchar2(6),
+name varchar2(20),
+address1 varchar2(30),
+address2 varchar2(30),
+city varchar2(15),
+pincode number(8),
+state varchar2(15),
+baldue number(10,2)
+);
+
+insert into client_master(clientno,name,city,pincode,state,baldue)
+values('c00001','ivan bayross','mumbai',400054,'maharashta',15000);
+
+insert into client_master(clientno,name,city,pincode,state,baldue)
+values('c00002','mamta muzumder','madars',780001,'tamil_nadu',0);
+
+insert into client_master(clientno,name,city,pincode,state,baldue)
+values('c00003','chhaya bankat','mumbai',400057,'maharashta',5000);
+
+insert into client_master(clientno,name,city,pincode,state,baldue)
+values('c00004','ashwini joshi','banglore',560001,'karnataka',0);
+
+insert into client_master(clientno,name,city,pincode,state,baldue)
+values('c00005','hansel colaco','mumbai',400060,'maharashtra',2000);
+
+insert into client_master(clientno,name,city,pincode,state,baldue)
+values('c00006,'deepak sharma','manglore',560050,'karnatakaa',0);
+
+
+
+
+PRODUCT MASTER
+
+create table product_master
+(
+ProductNo varchar2(6),
+desrciption char(15),
+profitPercent number(3),
+UnitMeasure char(6),
+QntOnHand numbar(4),
+RecorderLvl number(2),
+SellPrice number(3),
+costPrice number930
+);
+
+Insert into product_master
+Vaues('P00001','T-shirt',5,'piece',200,50,350,250);
+
+Insert into product_master
+Vaues('P0345','shirt',6,'piece',150,50,500,350);
+
+Insert into product_master
+Vaues('P06734','cotton jeans',5,'piece',100,20,600,450);
+
+Insert into product_master
+Vaues('P07865','jeans',5,'piece',100,20,750,500);
+
+Insert into product_master
+Vaues('P07868','trousers',2,'piece',150,50,850,550);
+
+Insert into product_master
+Vaues('P07885','pill overs',2,5,'piece',80,30,700,450);
+
+Insert into product_master
+Vaues('P07965','denim shirt',4,'piece',80,30,700,450);
+
+Insert into product_master
+Vaues('P07975','lycra tops',5,'piece',70,30,300,175);
+
+Insert into product_master
+Vaues('P08865','skirts',5,'piece',75,30,450,300);
+
+
+salesman_master
+
+create table salesman_master
+(
+SalesmanNo varchar(6),
+Name char(7),
+Address1 varchar(5),
+Address2 char(8),
+City char(7),
+PinCode number(6),
+State char(12)
+);
+
+Insert into salesman_master
+Values('S00001','aman','A/14','worli','mumbai',400002,'maharashta');
+
+Insert into salesman_master
+Values('S00002','omkar','65','nariman','mumbai',400001,'maharashta');
+
+Insert into salesman_master
+Values('S00003','raj','P-7','bandra','mumbai',400032,'maharashta');
+
+Insert into salesman_master
+Values('S00004','ashish','A/5','juhu','mumbai',400044,'maharashta');
+
+
+
+
+SALESMAN_MASTER_2
+
+create table salesman_master_2
+(
+SalesmanNo varchar(6),
+SalAmt number(4),
+TgtToGet number(4),
+YtdSales number(4),
+Remarks char(5)
+);
+
+
+Insert into salesman_master
+Values('S00001',3000,100,50,'good');
+
+Insert into salesman_master
+Values('S00002',3000,200,100,'good');
+
+Insert into salesman_master
+Values('S00003',3000,200,100,'good');
+
+Insert into salesman_master
+Values('S00004',3500,200,150,'good');
+
+
+COMBINE SALESMAN MASTER
+
+create table salesman_master
+(
+SalesmanNo varchar(6),
+Name char(7),
+Address1 varchar(5),
+Address2 char(8),
+City char(7),
+PinCode number(6),
+State char(12),
+SalAmt number(5),
+TgtToGet number(4),
+YtdSales number(4),
+Remarks char(5)
+);
+
+Insert into salesman_master
+Values('S00001','aman','A/14','worli','mumbai',400002,'maharashta',3000,100,50,'good');
+
+Insert into salesman_master
+Values('S00002','omkar','65','nariman','mumbai',400001,'maharashta',3000,200,100,'good');
+
+Insert into salesman_master
+Values('S00003','raj','P-7','bandra','mumbai',400032,'maharashta',3000,200,100,'good');
+
+Insert into salesman_master
+Values('S00004','ashish','A/5','juhu','mumbai',400044,'maharashta',3500,200,150,'good');
+
+
+Q.3
+1.select name from client_master;
+2.Select*from client_master;
+3.select name,city,state from client_master;
+4.Select description from product_master;
+5.Select name from client_master where city='mumbai';
+6.Select name from salesman_master where salary=3000;
+
+
+Q.4
+1.Update client_master
+   Set city='banglore',where clientno='C00005';
+2.Update client_master
+   Set baldue=1000,where clientno='C00001';
+3.Update product_master
+   Set costPrice=950,where ProductNo='P07868';
+4.Update salesman_master
+   Set city='pune';
+
+Q.5
+1.Delete from salesman_master-2 where SalAmt=3500;
+2.Delete from product_master where QntOnHand=100;
+3.Deete from client_master where state='tamil_nadu';
+
+
+Q.6
+1.Alter table client_master
+   Add telephone number(10);
+2.Alter table product_master
+   Alter column SellPrice number(10,2);
+
+
+Q.7
+Drop table client_master;
+
+Q.8
+Alter table client_master
+   Rename to sman_mast;
+
+
+
+
+
+
+
+
+
+PRACTICAL_3CONSTRAINTS
+
+
+create table department
+(
+dept_id number(3) primary key,
+dept_name varchar(20) not null,
+emp_count number(2) check(emp_count<=15)
+);
+
+create teble employee
+(
+emp_no number(3) primary key check(emp_no like 'E%'),
+dept_no number(3) constraint c7 references department(dept_id),
+salary number(4) check(salary>=5000),
+gender char(1) default='m'
+); 
+
+
+
+create table client_master_0
+(
+clientno varchar2(6) primary key check(clientno like 'e%'),
+name varchar2(20) not null,
+address1 varchar2(30),
+address2 varchar2(30),
+city varchar2(15),
+pincode number(8),
+state varchar2(15),
+baldue number(10,2)
+);
+
+
+
+create table product_master_2
+(
+ProductNo varchar2(6) primary key check (ProductNo like'P%'),
+desrciption char(15) not null ,
+profitPercent number(4,2) not null,
+UnitMeasure char(6) not null,
+QntOnHand number(4) not null,
+RecorderLvl number(2) not null,
+SellPrice number(3) not null 
+check (SellPrice <> 0),
+costPrice number(30) not null check (costPrice <> 0)
+);
+
+create table salesman_master_0
+(
+SalesmanNo varchar(6) primary key check(SalesmanNo like 'S%'),
+Name char(20) not null,
+Address1 varchar(30) not null,
+Address2 char(30),
+City char(30),
+PinCode number(8),
+State char(12),
+SalAmt number(4) not null check(SalAmt <> 0),
+TgtToGet number(4) not null check(TgtToGet <> 0),
+YtdSales number(4) not null,
+Remarks char(5)
+);
+
+
+create table sales_order
+(
+order_no varchar2(6) primary key check(order_no like 'O%'),
+clientno varchar2(6) constraint c2 references client_master_0(clientno),
+order_date date not null,
+delyaddr varchar2(25) ,
+salesman_no varchar2(6) constraint c3 references salesman_master_0(SalesmanNo),
+delytype char(1) default 'F',
+billyn char(1),
+delydate date check(delydate>='order_date'),orderstatus varchar2(10) check (orderstatus IN('in process','filfilled','backorder','cancelled'))
+); 
+
+insert into sales_order(order_no,clientno,order_date,delyaddr,salesman_no,delytype,billyn,delydate,orderstatus)
+values('O19001','C00001',12-june-04,'S00001','F','N',20-july-02,'in process');
+
+insert into sales_order(order_no,clientno,order_date,delyaddr,salesman_no,delytype,billyn,delydate,orderstatus)
+values('O19002','C00002',25-june-04,'S00002','P','N',27-june-02,'cancelled');
+
+
+insert into sales_order(order_no,clientno,order_date,delyaddr,salesman_no,delytype,billyn,delydate,orderstatus)
+values('O46865','C00003',18-feb-04,'S00003','F','Y',20-feb-02,'fullfilled');
+
+
+insert into sales_order(order_no,clientno,order_date,delyaddr,salesman_no,delytype,billyn,delydate,orderstatus)
+values('O19003','C00001',03-apr-04,'S00001','F','Y',07-apr-02,'fullfilled');
+
+
+insert into sales_order(order_no,clientno,order_date,delyaddr,salesman_no,delytype,billyn,delydate,orderstatus)
+values('O46866','C00004',20-may-04,'S00002','P','N',22-may-02,'cancelled');
+
+
+insert into sales_order(order_no,clientno,order_date,delyaddr,salesman_no,delytype,billyn,delydate,orderstatus)
+values('O19008','C00005',24-may-04,'S00004','F','N',26-july-02,'in process');
+
+create table sales_order_details
+(
+orderno varchar2(6) constraint c4 references sales_order(order_no),
+productno varchar2(6) constraint c5 references  product_master_2(ProductNo),
+qtyordered numbar(8),
+qtydsip number(8),
+productrate number(10,2)
+);
+
+insert into sales_order_details
+values('O19001','P00001',4,4,525);
+
+insert into sales_order_details
+values('O19001','P07965',2,1,8400);
+
+insert into sales_order_details
+values('O19001','P07885',2,1,5250);
+
+insert into sales_order_details
+values('O19002','P00001',10,0,525);
+
+insert into sales_order_details
+values('O46865','P07868',3,3,3150);
+
+insert into sales_order_details
+values('O46865','P07885',3,1,5250);
+
+insert into sales_order_details
+values('O46865','P00001',10,10,525);
+
+insert into sales_order_details
+values('O46865','P0345',4,4,1050);
+
+insert into sales_order_details
+values('O19003','P03453',2,2,1050);
+
+insert into sales_order_details
+values('O19003','P06734',1,1,12000);
+
+insert into sales_order_details
+values('O46866','P07965',1,0,8400);
+
+insert into sales_order_details
+values('O46866','P07965',1,0,1050);
+
+insert into sales_order_details
+values('O19008','P00001',10,5,525);
+
+insert into sales_order_details
+values('O19008','P07975',5,3,1050);
+
+
+
+
+
+
+PRACTICAL_4 FUNCTIONS:
+
+STRING FUNCTIONS:
+
+1) SELECT * FROM CLIENT_MASTE WHERE LENGTH(NAME)>8;
+
+2) SELECT F_NAME,LENGTH(F_NAME) AS FIRSTNAME_LENGTH FROM Client_master11 WHERE F_NAME LIKE 'A%' OR F_NAME LIKE 'J%' OR F_NAME LIKE 'M%' ORDER BY F_NAME;
+
+
+3) SELECT UPPER('Ruia') AS Uppercase FROM DUAL;
+   
+   SELECT LOWER('Ruia') AS Lowercase FROM DUAL;
+
+4) SELECT SUBSTR('BSc in computer scence',3,5) AS SUBSTR FROM DUAL;
+
+5) SELECT
+    TO_CHAR(MAX(salary), '0000000') AS max_salary_with_zeros,
+    TO_CHAR(MIN(salary), '0000000') AS min_salary_with_zeros
+   FROM CLIENT_MASTER;
+
+6) SELECT SUBSTR(phone_number, -4) AS last_four_chars FROM CLIENT_MASTE;
+
+7) SELECT CONCAT('GOOD', 'MORNING') FROM DUAL;
+
+8) SELECT REPLACE('GOOD MORNING', 'MORNING', 'NIGHT') FROM DUAL;
+
+9) SELECT INSTR('WELCOME RUIA', 'O') FROM DUAL;
+
+10) SELECT INSTR('HELLO WELCOME', 'E') FROM DUAL;
+
+11) SELECT REPLACE('***RUIA**', '*', '') FROM DUAL;
+
+12) SELECT TRIM(' ' FROM '  MY COLLEGE NAME IS RUIA  ') FROM DUAL;
+
+13) SELECT CONCAT('$','300') FROM DUAL;
+
+14) SELECT RPAD( 'hello', 12, '+') FROM DUAL;
+
+
+DATE FUNCTIONS:
+
+1) SELECT SYSDATE AS CURRENT_DATE FROM DUAL;
+
+2) SELECT (SYSDATE - 5) AS five_days_before,
+       (SYSDATE + 10) AS ten_days_after
+  FROM DUAL;
+
+3) SELECT TO_CHAR(SYSDATE, 'MM-DD-YYYY HH:MI:SS') AS FORMATTED
+   FROM DUAL;
+
+4)SELECT ADD_MONTHS('15-AUG-2023',2) FROM DUAL;
+
+5) SELECT LAST_DAY (SYSDATE) AS LAST_DATE FROM DUAL;
+
+6) SELECT ORDER_NO,TO_CHAR(ORDER_DATE,'DAY') AS DAYS_OF_WEEK FROM sales_order;
+
+7) SELECT TO_CHAR(delivery_date, 'Month') AS DELI_MONTH,
+       TO_CHAR(delivery_date, 'DD') AS DELI_DAY
+   FROM ORDERS;
+
+8) SELECT TO_CHAR(order_date, 'DD-Month-YY') AS DATE
+   FROM ORDERS;
+
+9) SELECT SYSDATE + 15 AS 15_DAYS_LATER
+   FROM DUAL;
+
+10) SELECT order_number, TO_CHAR(order_date, 'DY') AS DAY_OF_WEEK
+    FROM ORDERS;
+
+11) SELECT TO_CHAR(delivery_date, 'Month') AS DELI_MONTH,
+       TO_CHAR(delivery_date, 'DD') AS DELI_DAY
+    FROM ORDERS;
+
+12) SELECT TO_CHAR(order_date, 'DD-Month-YY') AS DATE
+    FROM ORDERS; 
+
+MATH FUNCTIONS
+
+1) SELECT COUNT(*) AS NO_OF_CLIENTS FROM CLIENT_MASTE;
+
+2) SELECT SUM(SALARY) AS TOTAL_SALARY FROM CANDIDATE WHERE GENDER LIKE 'M';
+
+3) SELECT MAX(SALARY) AS MAX_SALARY FROM CANDIDATE;
+
+4) SELECT MIN(SALARY) AS MIN_SALARY FROM CANDIDATE;
+
+5) SELECT COUNT(*) AS NO_OF_CLIENTS FROM CLIENT_MASTER;
+
+6)SELECT GREATEST(10,11,12,13,14,15) FROM DUAL;
+
+(7)SELECT LEAST(1,2,4,7,14,28) FROM DUAL;
+
+8) SELECT MOD(23,12) FROM DUAL;
+
+9) SELECT POWER(5, 6) AS result
+   FROM DUAL;
+
+10) SELECT SQRT(25) AS square_root
+    FROM DUAL;
+
+11) SELECT TRUNC(56.985) AS truncated_value
+    FROM DUAL;
+
+
+12) SELECT ROUND(45.78) AS rounded_value
+    FROM DUAL;
+
+
+13) SELECT 
+       SIN(7) AS sine_value,
+       COS(7) AS cosine_value,
+       TAN(7) AS tangent_value
+    FROM DUAL;
+
+
+
+PRACTICAL_5   GROUP BY HAVING CLAUSES
+
+
+create table emp1234
+(
+id number(5) not null primary key,
+name char(10),
+department char(8),
+salary number(6),
+gender char(6),
+comm number(6),
+city char(8)
+);
+
+insert into emp1234 values(1001,'john','it',35000,'male',3500,'london');
+insert into emp1234 values(1002,'smith','hr',45000,'female',4500,'mumbai');
+insert into emp1234 values(1003,'jams','finance',50000,'male',5000,'delhi');
+insert into emp1234 values(1004,'mike','finance',50000,'male',00,'london');
+insert into emp1234 values(1005,'linda','hr',75000,'female',00,'mumbai');
+insert into emp1234 values(1006,'anurag','it',35000,'male',00,'london');
+insert into emp1234 values(1007,'priyanla','hr',45000,'female',00,'mumbai');
+insert into emp1234 values(1008,'sambit','it',55000,'male',5500,'london');
+insert into emp1234 values(1009,'pranaya','it',57000,'male',5700,'london');
+insert into emp1234 values(10010,'hina','hr',75000,'female',7500,'mumbai');
+insert into emp1234 values(10011,'mai','finance',75000,'female',7500,'mumbai');
+insert into emp1234 values(10012,'laxmi','it',35000,'female',3500,'london');
+insert into emp1234 values(10013,'nikhil','it',35000,'male',3500,'london');
+
+select department,count(*) as total_employee from emp1234 group by department;
+
+select department,sum(salary) as total_salary from emp1234 group by department;
+
+select city,count(*) as city_employee from emp1234 group by city;
+
+select department,gender,count(*) as total_employe_count 
+from emp1234 group by department,gender
+order by department;
+
+select city,gender,sum(salary) as total_salary,count(id) as total_employee
+from emp1234
+group by city,gender;
+
+select department,avg(salary) as avg_salary from emp1234
+group by department;
+
+select city,sum(salary) as total_salary from emp1234
+where city='london'
+group by city;
+
+select city,sum(salary) as total_salary from emp1234
+where gender='male'
+group by city
+having city='london';
+
+SELECT Department, sum(salary) as Salary
+FROM emp1234
+GROUP BY department
+HAVING SUM(salary) > 150000;  
+
+SELECT department
+  FROM emp1234
+  GROUP BY department
+          HAVING COUNT(*) > 3;
+
+
+ PARCTICAL_ 6 SUBQUERY
+
+
+Create TABLE EMPLOYEE__(
+EMP_NO NUMBER(7),
+NAME CHAR(7),
+JOB CHAR(10),
+mgr NUMBER(6),
+HIREDATE DATE,
+SAL NUMBER(6),
+COMM NUMBER(5),
+DEPT_NO NUMBER(4)
+);
+
+
+INSERT INTO EMPLOYEE__ VALUES(7369,'SMITH','CLERK',7907,TO_DATE('17-DEC-80','DD-MON-YY'),800,0,20);
+
+INSERT INTO EMPLOYEE__ VALUES(7499,'ALLEN','SALESMAN',7698,TO_DATE('10-FEB-81','DD-MON-YY'),1600,300,30);
+INSERT INT0 EMPLOYEE__ VALUES(7521,'WARD','SALESMAN',7698,TO_DATE('22-FEB-81','DD-MON-YY'),1250,500,30);
+INSERT INTO EMPLOYEE__ VALUES(7566,'JONAS','MAMAGER',7839,TO_DATE('02-APR-81','DD-MON-YY'),2975,0,20);
+INSERT INTO EMPLOYEE__ VALUES(7654,'MARTIN','SALESMAN',7698,TO_DATE('28-SEP-81','DD-MON-YY'),1250,1400,30);
+INSERT INTO EMPLOYEE__ VALUES(7698,'DLAKE','MAMAGER',7839,TO_DATE('08-MAY-81','DD-MON-YY'),2850,0,30);
+INSERT INTO EMPLOYEE__ VALUES(7782,'CLARK','MAMAGER',7839,TO_DATE('09-JUN-81','DD-MON-YY'),2450,0,10);
+INSERT INTO EMPLOYEE__ VALUES(7788,'SCOTT','ANALYST',7566,TO_DATE('09-DEC-82','DD-MON-YY'),3000,0,20);
+INSERT INTO EMPLOYEE__ VALUES(7839,'KING','PRESIDENT',0,TO_DATE('17-NOV-81','DD-MON-YY'),5000,0,10);
+INSERT INTO EMPLOYEE__ VALUES(7844,'TURNER','SALESMAN',7698,TO_DATE('08-SEP-81','DD-MON-YY'),1500,0,30);
+INSERT INTO EMPLOYEE__ VALUES(7876,'ADAMS','CLERK',7788,TO_DATE('12-JAN-83','DD-MON-YY'),1100,0,20);
+INSERT INTO EMPLOYEE__ VALUES(7900,'JAMES','CLERK',7698,TO_DATE('03-DEC-81','DD-MON-YY'),950,0,30);
+INSERT INTO EMPLOYEE__ VALUES(7902,'FORD','ANALYST',7566,TO_DATE('03-DEC-81','DD-MON-YY'),3000,0,20);
+INSERT INTO EMPLOYEE__ VALUES(7934,'MILLER','CLERK',7782,TO_DATE('23-JAN-82','DD-MON-YY'),1300,0,10);
+
+SET PAGESIZE 100
+SET LINESIZE 200
+COLUMN EMP_NO 
+COLUMN NAME 
+COLUMN JOB 
+COLUMN mgr 
+COLUMN HIREDATE 
+COLUMN SAL 
+COLUMN COMM 
+COLUMN DEPT_NO 
+SELECT * FROM employee__;
+{___________NUMBERS ARE REPLACED BY #----}
+
+
+SELECT * FROM employee__ WHERE SAL = (SELECT MAX(SAL) FROM employee__);
+
+SELECT * FROM employee__ WHERE JOB = (SELECT JOB FROM employee__ WHERE NAME = 'SMITH');
+
+select * from employee__ where SAL >( select MAX(SAL) FROM EMPLOYEE__ WHERE JOB='SALESMAN');
+
+//SELECT * FROM employee__ WHERE JOB=(SELECT * FROM employee__ WHERE JOB='DLAKE') AND SAL>( SELECT SALARY FROM employee__ WHERE NAME ='DLAKE' );
+
+SELECT * FROM employee__ WHERE JOB = (SELECT JOB FROM employee__ WHERE NAME = 'DLAKE') AND SAL > (SELECT SAL FROM employee__ WHERE NAME = 'DLAKE');
+
+SELECT * FROM employee__ WHERE HIREDATE = ( SELECT MIN(HIREDATE) FROM employee__);
+
+select * from employee__ where JOB in (select JOB from employee__ where NAME ='SMITH' or NAME='CLARK');
+
+SELECT * FROM EMPLOYEE__ WHERE SAL> ( SELECT JOB 
+
+SELECT * FROM employee__ WHERE SAL > ANY (SELECT SAL FROM employee__ WHERE JOB = 'SALESMAN');
+
+SELECT * FROM employee__ WHERE SAL > ALL (SELECT SAL FROM employee__ WHERE JOB = 'SALESMAN');
+
+SELECT NAME,SAL
+FROM employee__
+WHERE SAL >all (SELECT SAL FROM employee__ WHERE JOB = 'CLERK')
+ORDER BY SAL ASC;
+
+SELECT * FROM employee__ WHERE SAL > ALL (SELECT AVG(SAL) FROM employee__ WHERE JOB='ANALYST');
+
+
+
+
+
+
+
+ PARCTICAL_ 7 PLSQL BASIC 
+set serveroutput on;
+set verify off;
+1
+declare 
+	var_length number(4,2);
+	var_breadth number(4,2);
+	var_height number(4,2);
+	var_area number(9,4);
+	var_volume number(12,6);
+begin
+	var_length :='&var_length';
+	var_breadth :='&var_breadth';
+	var_height :='&var_height';
+	var_area:=2*(var_length*var_breadth+var_length*var_height+var_breadth*var_height);
+	var_volume:=(var_length*var_breadth*var_height);
+	dbms_output.put_line('area is'||var_area);
+	dbms_output.put_line('volume is'||var_area);
+end;
+
+2
+
+declare 
+	var_no1 number(4,2);
+	var_no2 number(4,2);
+	var_no3 number(4,2);
+	var_avg number(4,2);
+begin
+	var_no1:='&var_no1';
+	var_no2:='&var_no2';
+	var_no3:='&var_no3';
+	var_avg:=(var_no1+var_no2+var_no3)/3;
+	dbms_output.put_line('average of'||var_no1||','||var_no2||'and'||var_no3|| ' is' ||var_avg);
+end;
+3
+declare 
+	var_no1 number(4,2);
+	var_no2 number(4,2);
+	var_sum number(5,2);
+	var_sub number(3,2);
+	var_pro number(8,4);
+	var_div number(16,15);
+begin
+	var_no1:='&var_no1';
+	var_no2:='&var_no2';
+	var_sum:=var_no1+var_no2;
+	var_sub:=var_no1-var_no2;
+	var_pro:=var_no1*var_no2;
+	var_div:=var_no1/var_no2;
+	dbms_output.put_line('sum of'||var_no1||'and'||var_no2||'is'||var_sum);
+	dbms_output.put_line('subtraction of'||var_no1||'and'||var_no2||'is'||var_sub);
+	dbms_output.put_line('product  of'||var_no1||'and'||var_no2||'is'||var_pro);
+	dbms_output.put_line('division of'||var_no1||'and'||var_no2||'is'||var_div);
+end;
+
+4
+create table student123
+(
+StudentNo number(3),
+StudentName char(20),
+College_name char(20),
+Date_of_admission date,
+Address varchar2(40),
+City char(10)
+);
+
+insert into student123 values(1,'teja','ratnam','12-feb-2023','20 amber villa','dadar');
+insert into student123 values(2,'neeraj','somaiya','13-feb-2023','joy homes','parel');
+insert into student123 values(3,'dishita','st xaviers','14-feb-2023','world towers','mulund');
+insert into student123 values(4,'aditya','ruia','15-feb-2023','excellente towers','matunga');
+
+ SET PAGESIZE 100
+ SET LINESIZE 200
+ select*from student123;
+
+declare
+	v_students student123%rowtype;
+	v_sno student123.StudentNo%type;
+begin
+	v_sno:='&v_sno';
+	select*into v_students from student123 where StudentNo=v_sno;
+	dbms_output.put_line('StudentNo:'||v_students.StudentNo);
+	dbms_output.put_line('StudentName'||v_students.StudentName);
+	dbms_output.put_line('College_name'||v_students.College_name);
+	dbms_output.put_line('Date_of_admission '||v_students.Date_of_admission );
+	dbms_output.put_line('Address'||v_students.Address);
+	dbms_output.put_line('City '||v_students.City);
+end;
+
+5
+create table customer123
+(
+CustNo number(2),
+CustomerName char(10),
+mobile_no number(10),
+Address char(20), 
+City char(20)
+);
+
+insert into customer123 values(1,'teja',9167534578,'20 amber villa','dadar');
+insert into customer123 values(2,'neeraj',9819675657,'joy homes','parel');
+insert into customer123 values(3,'dishita',9987368976,'world towers','mulund');
+insert into customer123 values(4,'aditya',9987654678,'excellente towers','matunga');
+
+declare
+	v_name customer123.CustomerName%type;
+begin
+	select CustomerName into v_name from customer123 where mobile_no like'9819%';
+	dbms_output.put_line('CUSTOMERS NAME IS'||v_name);
+end;
+
+6
+create table customer1
+(
+CustNo number(2),
+CustomerName char(10),
+mobile_no number(10),
+Address char(20), 
+City char(20)
+);
+
+insert into customer1 values(1,'teja',9167534578,'20 amber villa','mumbai');
+insert into customer1 values(2,'neeraj',9819675657,'joy homes','thane');
+insert into customer1 values(3,'dishita',9987368976,'world towers','banglore');
+insert into customer1 values(4,'aditya',9987654678,'excellente towers','pune');
+
+declare
+	v_name customer1.CustomerName%type;
+begin
+	select CustomerName into v_name from customer1 where city='banglore' or city='delhi';
+	dbms_output.put_line('CUSTOMERS NAME IS'||v_name);
+end;
+
+7
+declare
+	v_studentsno student123.StudentNo%type;
+begin
+	v_studentsno:=&v_studentsno;
+	delete from student123 where StudentNo=v_studentsno;
+	dbms_output.put_line(v_studentsno||'your admission iscancelled');
+end;
+
+select * from student123;
+
+8
+create table whatsapp
+(
+name char(10),
+mobile_no number(10),
+status char(20)
+);
+
+insert into whatsapp values('dishita',9987369076,'doing great');
+insert into whatsapp values('neeraj',9987378076,'feeling good');
+insert into whatsapp values('nikhil',9007369076,'busy');
+
+declare
+	v_mobile_no whatsapp.mobile_no%type;
+begin
+	v_mobile_no:='&v_mobile_no';
+	update whatsapp set status='going on a trek' where mobile_no=v_mobile_no;
+	dbms_output.put_line('status updated');
+end;
+
+9
+create table empl
+(
+emp_id number(2),
+name char(10),
+joining_date date,
+retirement_date date
+);
+
+insert into empl values(1,'dishita','12-feb-2013','24-apr-2023'); 
+insert into empl values(2,'neeraj','12-apr-2013','24-may-2023'); 
+insert into empl values(3,'sonam','12-mar-2013','24-jun-2023'); 
+insert into empl values(4,'nikhil','12-jun-2013','24-apr-2023'); 
+insert into empl values(5,'riddhi','12-dec-2013','24-aug-2023');
+
+
+DECLARE
+  v_joining_date empl.joining_date%TYPE;
+  v_retirement_date empl.retirement_date%TYPE;
+  v_service_period NUMBER;
+  v_employee_id empl.emp_id%TYPE;
+BEGIN
+  -- Prompt the user to enter the employee ID
+  v_employee_id := &v_employee_id;
+
+  SELECT joining_date, retirement_date
+  INTO v_joining_date, v_retirement_date
+  FROM empl
+  WHERE emp_id = v_employee_id;
+
+  v_service_period := v_retirement_date - v_joining_date;
+
+  DBMS_OUTPUT.PUT_LINE('Service Period: ' || v_service_period || ' days');
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    DBMS_OUTPUT.PUT_LINE('Employee not found.');
+END;
+
+10
+
+
+DECLARE
+  v_basic_sal NUMBER;
+  v_da NUMBER;
+  v_income_tax NUMBER;
+  v_monthly_sal NUMBER;
+  v_annual_package NUMBER;
+BEGIN
+  -- Prompt the user to enter the basic salary
+  v_basic_sal := &basic_sal;
+
+  -- Prompt the user to enter the DA (Dearness Allowance)
+  v_da := &da;
+
+  -- Prompt the user to enter the income tax
+  v_income_tax := &income_tax;
+
+  -- Calculate the monthly salary
+  v_monthly_sal := v_basic_sal - (0.2 * v_basic_sal) + v_da - v_income_tax;
+
+  -- Calculate the annual package
+  v_annual_package := v_monthly_sal * 12;
+
+  DBMS_OUTPUT.PUT_LINE('Annual Package: ' || v_annual_package);
+END;
+
+
+
+PLSQL IF ELSE STATEMENTS
+
+1
+CREATE TABLE Employe (
+  EmpId NUMBER,
+  EmpName VARCHAR2(100),
+  DateOfJoining DATE,
+  EmpSalary NUMBER
+);
+
+
+INSERT INTO Employe (EmpId, EmpName, DateOfJoining, EmpSalary)
+VALUES (1, 'John', TO_DATE('2022-01-01', 'YYYY-MM-DD'), 5000);
+
+INSERT INTO Employe (EmpId, EmpName, DateOfJoining, EmpSalary)
+VALUES (2, 'John', TO_DATE('2022-02-01', 'YYYY-MM-DD'), 5000);
+
+INSERT INTO Employe (EmpId, EmpName, DateOfJoining, EmpSalary)
+VALUES (3, 'John', TO_DATE('2022-03-01', 'YYYY-MM-DD'), 5000);
+
+INSERT INTO Employe (EmpId, EmpName, DateOfJoining, EmpSalary)
+VALUES (4, 'John', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 5000);
+
+INSERT INTO Employe (EmpId, EmpName, DateOfJoining, EmpSalary)
+VALUES (5, 'John', TO_DATE('2022-05-01', 'YYYY-MM-DD'), 5000);
+
+
+DECLARE
+  v_date DATE;
+  v_doj Employe.DateOfJoining%TYPE;
+  v_emp_id Employe.EmpId%TYPE;
+BEGIN
+  v_date := TO_DATE('&v_date', 'YYYY-MM-DD');
+  v_emp_id := '&v_emp_id';
+  
+  SELECT DateOfJoining INTO v_doj FROM Employe WHERE EmpId = v_emp_id;
+  
+  IF v_doj > v_date THEN
+    UPDATE Employe SET EmpSalary = EmpSalary + EmpSalary * 0.05 WHERE EmpId = v_emp_id;
+  END IF;
+END;
+/
+end if;
+end;
+
+
+
+
+
+
+pl sql loops
+
+1.
+
+--using loop exit when
+
+declare 
+	number number(3);
+	even_num number(4);
+	odd_num number(4);
+	rem number(4);
+	var number(2);
+begin
+	even_num:=0;
+	odd_num:=0;
+	var:=1;
+	number:=1;
+		loop
+		if var<=200 then
+		select mod(number,2) into rem from dual;
+		if rem=0 then 
+		even_num:=even_num+number;
+		number:=number+1;
+	else 
+		odd_num:=odd_num+number;
+		number:=number+1;
+	end if;
+	var:=var+1;
+	else 
+	exit;
+	end if;
+	end loop;
+DBMS_OUTPUT.PUT_LINE('SUM OF FIRST 100 EVEN NUMBERS IS'||even_num);
+
+DBMS_OUTPUT.PUT_LINE('SUM OF FIRST 100 ODD NUMBERS IS'||odd_num);
+end;
+
+
+declare
+num number(4);
+evensum number(5);
+oddsum number(5);
+variable number(3);
+rem number(4);
+begin
+evensum:=0;
+oddsum:=0;
+num:=1;
+variable:=1;
+LOOP
+if variable<=200 then
+select mod(num,2) into rem from dual;
+if rem=0 then
+evensum:=evensum+num;
+num:=num+1;
+else
+oddsum:=oddsum+num;
+num:=num+1;
+end if;
+variable:=variable+1;
+else
+exit;
+end if;
+END LOOP;
+dbms_output.put_line('Sum of first 100 even natural numbers'||
+evensum);
+dbms_output.put_line('Sum of first 100 odd natural numbers'||
+oddsum);
+end;
+
+
+--using loop exit when
+declare
+
+num number(4);
+evensum number(5);
+oddsum number(5);
+variable number(3);
+rem number(4);
+begin
+evensum:=0;
+oddsum:=0;
+num:=1;
+variable:=1;
+LOOP
+select mod(num,2) into rem from dual;
+if rem=0 then
+evensum:=evensum+num;
+num:=num+1;
+else
+oddsum:=oddsum+num;
+num:=num+1;
+end if;
+exit when variable=200;
+variable:=variable+1;
+END LOOP;
+dbms_output.put_line('Sum of first 100 even natural numbers'||
+evensum);
+
+dbms_output.put_line('Sum of first 100 odd natural numbers'||
+oddsum);
+end;
+
+
+
+using while loop
+
+
+declare
+num number(4);
+evensum number(5);
+oddsum number(5);
+variable number(3);
+rem number(4);
+begin
+evensum:=0;
+oddsum:=0;
+num:=1;
+variable:=1;
+while variable<= 200
+LOOP
+select mod(num,2) into rem from dual;
+if rem=0 then
+evensum:=evensum+num;
+num:=num+1;
+else
+oddsum:=oddsum+num;
+num:=num+1;
+end if;
+variable:=variable+1;
+END LOOP;
+dbms_output.put_line('Sum of first 100 even natural numbers : '||
+evensum);
+dbms_output.put_line('Sum of first 100 odd natural numbers : '||
+oddsum);
+
+end;
+/
+
+
+---using forloop
+declare
+num number(4);
+evensum number(5);
+oddsum number(5);
+variable number(3);
+
+rem number(4);
+begin
+evensum:=0;
+oddsum:=0;
+num:=1;
+for variable in 1..200
+LOOP
+select mod(num,2) into rem from dual;
+if rem=0 then
+evensum:=evensum+num;
+num:=num+1;
+else
+oddsum:=oddsum+num;
+num:=num+1;
+end if;
+END LOOP;
+dbms_output.put_line('Sum of first 100 even natural numbers :'||
+evensum);
+dbms_output.put_line('Sum of first 100 odd natural numbers :'||
+oddsum);
+end;
+
+
+
+
+
+2.
+create table circle
+(
+Radius number(1),
+Area number(8,2)
+);
+
+
+
+declare
+radius number(1);
+area number(8,2);
+begin
+radius:=1;
+loop
+if radius<=4 then
+area:=3.14*radius*radius;
+dbms_output.put_line('Radius of circle : '||radius);
+dbms_output.put_line('Area of circle : '||area);
+insert into circle
+values(radius,area);
+radius:=radius+1;
+else
+exit;
+end if;
+end loop;
+end;
+
+
+
+
+3, factorial
+
+
+FACTORIAL OF A NUMBER
+
+declare 
+num number(4);
+factorial number(500);
+
+begin
+num:='&num';
+factorial:=1;
+
+loop
+if num>0 then 
+factorial:=factorial*num
+for
+num:=num-1
+else exit;
+end if;
+end loop;
+dbms_output.put_line('factorial is'||factorial);
+end;
+
+
+
+
+
+procedures
+
+
+
+1. create or replace  procedure demo (a number) {default is n }
+
+2 .create r repplace procedure demo(a in number,b out number , c inout char)
+
+1) Create Procedures to calculate area of Triangle, Rectangle and circle. Use case..when statements to call the procedures as per the choice of the user
+
+Procedure TriangleArea
+
+create or replace procedure TriangleArea(b in number,h in number)
+as
+c number(10,2);
+begin
+c:=0.5*b*h;
+dbms_output.put_line('Area of Triangle is '||c);
+end;s
+
+
+
+procedure RectangleArea
+
+create or replace procedure RectangleArea(l in number,b in number)
+as
+area number(10,2);
+begin
+area:=l*b;
+dbms_output.put_line('Area of Rectangle is'||area);
+end;
+/
+
+
+Procedure CircleArea
+
+create or replace procedure CircleArea(r in number)
+as
+area number(10,2);
+begin
+area:=3.14*r*r;
+dbms_output.put_line('Area of circle :'||area);
+end;
+
+
+calling these procedures by taking input from user
+declare
+choice char(10);
+begin
+choice:='&choice';
+case choice
+when 'Triangle' then
+TriangleArea(4,5);
+when 'Rectangle' then
+RectangleArea(3,6);
+when 'Circle'then
+CircleArea(5);
+else
+dbms_output.put_line('Invalid option');
+end case;
+end;
+
+
+create table contact 
+(
+cont_id number(5),
+first_name char(10),
+last_name char(10),
+contact number(10)
+);
+
+create or replace procedure output_contact(c_ID number)
+is
+cont contact%rowtype;
+begin
+select * into cont FROM contact where cont_id=c_ID;
+dbms_output.put_line(cont.first_name||' '||cont.last_name||' '||cont.contact);
+end;
+
+Create table usser
+(
+id number(3),
+name char(10)
+);
+
+create or replace procedure INSERTUSER
+(id IN NUMBER,
+name IN VARCHAR2)
+is
+begin
+insert into usser values(id,name);
+end;
+/
+BEGIN
+insert into usser values(101,'Rahul');
+dbms_output.put_line('record inserted successfully');
+END;
+/
+
+
+
+variable modes
+
+in out 
+ create or replace procedure findmax(x in number,y in number,z out number)
+is
+BEGIN
+IF x < y THEN
+ z:= x; 
+ ELSE 
+ z:= y; 
+END IF;
+END; 
+ 
+
+
+functions
+
+cube of number
+create or replace function mycube(a in number)
+is
+result number(4);
+begin
+result:=a*a*a;
+return result;
+end;
+
+plsql 
+declare 
+ans number(5);
+begin
+ans:=mycube(4);
+dbms_output.put_line(asn);
+ 
+end;
+
+
+
+
+
+CREATE OR REPLACE FUNCTION mysquare(s number)
+return number
+as
+	area number(10);
+BEGIN
+	area:= s*s;
+	return area;
+END;
+/
+
+DECLARE
+	a number(3):= &a;
+	
+	area number(10);
+BEGIN
+	area:=square(a);
+	dbms_output.put_line('area of square='||area);
+END;
+/
+
+
+
+Sure, here's the corrected code:
+
+```
+PROCEDURE findMin(x IN number, y IN number, z OUT number)
+IS
+BEGIN
+  IF x < y THEN
+    z := x;
+  ELSE
+    z := y;
+  END IF;
+END;
+
+DECLARE
+  a number;
+  b number;
+  c number;
+BEGIN
+  a := 23;
+  b := 45;
+  findMin(a, b, c);
+  dbms_output.put_line('Minimum of (23, 45): ' || c);
+END;
+/
+
+PROCEDURE squareNum(x IN OUT number)
+IS
+BEGIN
+  x := x * x;
+END;
+
+DECLARE
+  a number;
+BEGIN
+  a := 23;
+  squareNum(a);
+  dbms_output.put_line('Square of (23): ' || a);
+END;
+/
+```
+
+
+;
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+trigger
+
+create table emp_details
+(
+Id number(10),
+Name char(25),
+Salary number(10,2)
+);
+
+insert into emp_details values(1,'nikhil',10000);
+insert into emp_details values(2,'nikhil',10000);
+insert into emp_details values(3,'nikhil',10000);
+insert into emp_details values(4,'nikhil',10000);
+insert into emp_details values(5,'nikhil',10000);
+
+create or replace trigger salary
+before insert or update on emp_details
+for each row
+when (new.salary>10000)
+begin
+raise_application_error(-20999,'Salary greater than 10000&#39');
+end;
+/
+
+insert into emp_details values(6,'Samruddhi',9000);
+
+insert into emp_details values(7,'Siddhi',15000);
+
+
+update emp_details set Salary = 15000 where Id=1;
+
+
+
+
+
+
+
+
+
